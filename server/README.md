@@ -1,4 +1,4 @@
-# SmartBrain-api - v2
+# SmartBrain-api 
 
 1. Clone this repo
 2. Run `npm install`
