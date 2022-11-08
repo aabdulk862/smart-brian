@@ -1,11 +1,35 @@
+version: '3.8'
 services:
+
+  # PostgreSQL
+  postgres:
+    container_name: postgres
+    build: ./postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_URL: postgres://admin:password@localhost:5432/smart-brain
+      POSTGRES_DB: smart-brain
+      POSTGRES_HOST: postgres
+    ports:
+      - "5432:5432"
+
+  # Backend
   server:
+    # env_file:
+    #   - ./.private/api-keys.env "Another way to insert env variables" 
     container_name: backend
-    # image: node:18-bullseye
     build: ./
+    volumes:
+      - ./:/usr/src/server
     command: npm start
     working_dir: /usr/src/server
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/usr/src/server
+    environment:
+      POSTGRES_URI: postgres://admin:password@postgres:5432/smart-brain
+    # Heads up! Docker has updated this feature and now you don't need to define the links property in order for things to work - https://docs.docker.com/compose/networking/
+    # links:
+    #   - postgres
+    #   - redis
+    
