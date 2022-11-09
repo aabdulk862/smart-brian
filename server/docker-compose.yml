@@ -28,8 +28,3 @@ services:
       - "3000:3000"
     environment:
       POSTGRES_URI: postgres://admin:password@postgres:5432/smart-brain
-    # Heads up! Docker has updated this feature and now you don't need to define the links property in order for things to work - https://docs.docker.com/compose/networking/
-    # links:
-    #   - postgres
-    #   - redis
-    
