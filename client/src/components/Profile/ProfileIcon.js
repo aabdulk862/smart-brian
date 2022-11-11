@@ -45,7 +45,8 @@ class ProfileIcon extends Component {
             className="b--transparent shadow-5"
             style={{
               marginLeft: "-6rem",
-              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              fontSize: "1.1rem"
             }}
           >
             <DropdownItem onClick={() => this.props.toggleModal()}>
