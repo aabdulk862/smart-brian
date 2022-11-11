@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Dropdown,
   DropdownToggle,
@@ -6,7 +6,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-class ProfileIcon extends React.Component {
+class ProfileIcon extends Component {
   constructor(props) {
     super(props);
     this.state = {
