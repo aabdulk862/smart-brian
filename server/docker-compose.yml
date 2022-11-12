@@ -16,8 +16,7 @@ services:
 
   # Backend
   server:
-    # env_file:
-    #   - ./.private/api-keys.env "Another way to insert env variables" 
+    env_file: .env
     container_name: backend
     build: ./
     volumes:
