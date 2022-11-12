@@ -27,6 +27,7 @@ class ProfileIcon extends React.Component {
           isOpen={this.state.dropdownOpen}
           toggle={this.toggle}
           drop="left"
+          style={{ 'cursor': 'pointer'}}
         >
           <DropdownToggle
             tag="span"
