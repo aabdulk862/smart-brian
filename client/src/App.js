@@ -16,8 +16,8 @@ const initialState = {
   input: "",
   imageUrl: "",
   boxes: [],
-  route: "home",
-  isSignedIn: true,
+  route: "signin",
+  isSignedIn: false,
   isProfileOpen: false,
   user: {
     id: "",
@@ -25,6 +25,8 @@ const initialState = {
     email: "",
     entries: 0,
     joined: "",
+    age: "",
+    location: "",
   },
 };
 
@@ -109,14 +111,15 @@ class App extends Component {
   };
 
   toggleModal = () => {
-    this.setState(state => ({
+    this.setState((state) => ({
       ...state,
       isProfileOpen: !state.isProfileOpen,
     }));
-  }
+  };
 
   render() {
-    const { isSignedIn, imageUrl, route, boxes, isProfileOpen } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, isProfileOpen, user } =
+      this.state;
     return (
       <div className="App">
         <ParticlesBg type="circle" bg={true} />
@@ -127,7 +130,11 @@ class App extends Component {
         />
         {isProfileOpen && (
           <Modal>
-            <Profile isProfileOpen={isProfileOpen} toggleModal={this.toggleModal} />
+            <Profile
+              isProfileOpen={isProfileOpen}
+              toggleModal={this.toggleModal}
+              user={user}
+            />
           </Modal>
         )}
         {route === "home" ? (
