@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Dropdown,
   DropdownToggle,
@@ -6,7 +6,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-class ProfileIcon extends Component {
+class ProfileIcon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,7 @@ class ProfileIcon extends Component {
             aria-expanded={this.state.dropdownOpen}
           >
             <img
-              src="https://randomuser.me/api/portraits/men/70.jpg"
+              src="https://randomuser.me/api/portraits/men/40.jpg"
               className="br-100 h3 w3 dib"
               alt="avatar"
             />
@@ -45,8 +45,7 @@ class ProfileIcon extends Component {
             className="b--transparent shadow-5"
             style={{
               marginLeft: "-6rem",
-              backgroundColor: "rgba(255, 255, 255, 0.7)",
-              fontSize: "1.1rem"
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
             }}
           >
             <DropdownItem onClick={() => this.props.toggleModal()}>
