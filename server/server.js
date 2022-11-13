@@ -35,7 +35,7 @@ app.use(express.json()); // latest version of exressJS now comes with Body-Parse
 app.get("/", (req, res) => {
   res.send("It's working");
 });
-app.post("/signin", signin.handleSignin(db, bcrypt));
+app.post("/signin", signin.signinAuthentication(db, bcrypt));
 app.post("/register", (req, res) => {
   register.handleRegister(req, res, db, bcrypt);
 });
@@ -51,6 +51,7 @@ app.put("/image", (req, res) => {
 app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
+
 
 app.listen(3000, () => {
   console.log("app is running on port 3000");

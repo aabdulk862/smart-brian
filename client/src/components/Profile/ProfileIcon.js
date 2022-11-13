@@ -36,7 +36,7 @@ class ProfileIcon extends React.Component {
             aria-expanded={this.state.dropdownOpen}
           >
             <img
-              src="https://randomuser.me/api/portraits/men/40.jpg"
+              src="https://randomuser.me/api/portraits/lego/2.jpg"
               className="br-100 h3 w3 dib"
               alt="avatar"
             />
