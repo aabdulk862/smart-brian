@@ -1,9 +1,13 @@
 FROM node:18-bullseye
 
+# Create app directory
+RUN mkdir -p /usr/src/server
 WORKDIR /usr/src/server
 
-COPY ./ ./
-
+# Install app dependencies
+COPY package.json /usr/src/server
 RUN npm install
 
-CMD ["/bin/bash"]
+# Bundle app source
+COPY . /usr/src/server
+
