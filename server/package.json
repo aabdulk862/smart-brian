@@ -19,7 +19,8 @@
     "knex": "^2.3.0",
     "latest-version": "^7.0.0",
     "morgan": "^1.10.0",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "redis": "^4.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

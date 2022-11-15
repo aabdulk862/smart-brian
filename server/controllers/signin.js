@@ -1,4 +1,21 @@
 const jwt = require("jsonwebtoken");
+const redis = require("redis");
+
+/// Setup Redis
+(async () => {
+  const redisClient = redis.createClient({
+    url: process.env.REDIS_URI,
+  });
+
+  redisClient.on("error", console.error);
+
+  await redisClient.connect();
+
+  await redisClient.set("key", "value");
+  const value = await redisClient.get("key");
+
+  console.log(value);
+})();
 
 const handleSignin = (db, bcrypt, req, res) => {
   const { email, password } = req.body;
@@ -39,7 +56,7 @@ const createSessions = (user) => {
   // JWT token, return user data
   const { email, id } = user;
   const token = signToken(email);
-  return {success :'true', userId: id, token}
+  return { success: "true", userId: id, token };
 };
 
 const signinAuthentication = (db, bcrypt) => (req, res) => {
@@ -48,9 +65,11 @@ const signinAuthentication = (db, bcrypt) => (req, res) => {
     ? getAuthtokenId()
     : handleSignin(db, bcrypt, req, res)
         .then((data) => {
-         return data.id && data.email ? createSessions(data) : Promise.reject(data);
+          return data.id && data.email
+            ? createSessions(data)
+            : Promise.reject(data);
         })
-        .then(session => res.json(session))
+        .then((session) => res.json(session))
         .catch((err) => res.status(400).json(err));
 };
 
