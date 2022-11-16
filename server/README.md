@@ -1,4 +1,5 @@
-# SmartBrain - API
+# SmartBrain-api - Dockerized
+Final project for ZTM course - using Docker
 
 1. Clone this repo
 2. run `npm install`
@@ -22,4 +23,5 @@ Run `docker-compose exec redis redis-cli`
 You can grab Clarifai API key [here](https://www.clarifai.com/)
 
 ** Make sure you use postgreSQL instead of mySQL for this code base.
+
 

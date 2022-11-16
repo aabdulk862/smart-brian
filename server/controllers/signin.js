@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');
 const redis = require('redis');
 // You will want to update your host to the proper address in production
 const redisClient = redis.createClient({
-  url: process.env.REDIS_URI,
+  host: '127.0.0.1',
+  legacyMode: true
 });
 
 // New for Redis v4+
@@ -16,7 +17,7 @@ redisConnect()
 
 const signToken = (username) => {
   const jwtPayload = { username };
-  return jwt.sign(jwtPayload,  process.env.JWT_SECRET, { expiresIn: '2 days'});
+  return jwt.sign(jwtPayload, 'JWT_SECRET_KEY', { expiresIn: '2 days'});
 };
 
 const setToken = (key, value) => Promise.resolve(redisClient.set(key, value));

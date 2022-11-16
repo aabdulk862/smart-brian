@@ -1,5 +1,6 @@
-version: "3.8"
+version: '3.8'
 services:
+
   # PostgreSQL
   postgres:
     container_name: postgres
@@ -22,7 +23,8 @@ services:
 
   # Backend
   server:
-    env_file: .env
+    # env_file:
+    #   - ./.private/api-keys.env "Another way to insert env variables" 
     container_name: backend
     build: ./
     volumes:
@@ -34,3 +36,8 @@ services:
     environment:
       POSTGRES_URI: postgres://admin:password@postgres:5432/smart-brain
       REDIS_URI: redis://redis:6379
+    # Heads up! Docker has updated this feature and now you don't need to define the links property in order for things to work - https://docs.docker.com/compose/networking/
+    # links:
+    #   - postgres
+    #   - redis
+    

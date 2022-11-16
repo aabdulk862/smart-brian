@@ -1,5 +1,5 @@
 .profile-modal {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255,255, 255,0.8);
   position: fixed;
   height: 100%;
   width: 100%;
@@ -17,6 +17,6 @@
 }
 
 .modal-close:hover {
-  color: grey;
-  cursor: pointer;
+    color: grey;
+    cursor: pointer;
 }
